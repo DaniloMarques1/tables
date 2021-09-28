@@ -8,11 +8,13 @@ class TablesController < ApplicationController
 
   # GET /tables/1 or /tables/1.json
   def show
+    @items = Item.all
   end
 
   # GET /tables/new
   def new
     @table = Table.new
+    @table.open = true
   end
 
   # GET /tables/1/edit
@@ -64,7 +66,6 @@ class TablesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def table_params
-      params.require(:table).permit(:number, 
-      items: [:id, :number, :description, :_destroy])
+      params.require(:table).permit(:number, :open)
     end
 end

@@ -14,6 +14,8 @@ class TablesTest < ApplicationSystemTestCase
     visit tables_url
     click_on "New Table"
 
+    fill_in "Number", with: @table.number
+    check "Open" if @table.open
     click_on "Create Table"
 
     assert_text "Table was successfully created"
@@ -24,6 +26,8 @@ class TablesTest < ApplicationSystemTestCase
     visit tables_url
     click_on "Edit", match: :first
 
+    fill_in "Number", with: @table.number
+    check "Open" if @table.open
     click_on "Update Table"
 
     assert_text "Table was successfully updated"

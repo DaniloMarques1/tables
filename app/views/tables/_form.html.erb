@@ -1,25 +1,27 @@
+<%= form_with(model: table) do |form| %>
+  <% if table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(table.errors.count, "error") %> prohibited this table from being saved:</h2>
 
-  <%# <div id="items"> %>
-    <%# <%= fields_for :items do |items| %>
-      <%# <%= render partial: "items", locals: {f:items} %>
-    <%# <%= link_to_association('[Novo Item]', form, :items)%>
-  <%# </div> %> 
-  <%= form_for :item do |f| %>
-  <div class="nested-fields">
-    <div class="field">
-      <%= f.label :number %>
-      <%= f.text_field :number %>
-
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-      <%# <%= link_to_remove_association('[Remover]', f) %> 
+      <ul>
+        <% table.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.number_field :number %>
   </div>
+
+  <div class="field">
+    <%= form.label :open %>
+    <%= form.check_box :open %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= form.submit %>
   </div>
-   <%# <%= f.submit %>
 <% end %>
-
-
-  
