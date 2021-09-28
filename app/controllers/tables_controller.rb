@@ -8,7 +8,8 @@ class TablesController < ApplicationController
 
   # GET /tables/1 or /tables/1.json
   def show
-    @items = Item.all
+    table_id = @table.id
+    @items = Item.where(table_id: table_id)
   end
 
   # GET /tables/new
