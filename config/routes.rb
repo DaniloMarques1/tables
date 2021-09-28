@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get "welcome/index"  
-  root to: "welcome#index" 
-  resources :items
+  resources :items, only: [:create, :new]
   resources :tables
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'tables#index'
 end
 

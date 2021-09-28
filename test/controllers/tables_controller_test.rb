@@ -17,7 +17,7 @@ class TablesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create table" do
     assert_difference('Table.count') do
-      post tables_url, params: { table: {  } }
+      post tables_url, params: { table: { number: @table.number, open: @table.open } }
     end
 
     assert_redirected_to table_url(Table.last)
@@ -34,7 +34,7 @@ class TablesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update table" do
-    patch table_url(@table), params: { table: {  } }
+    patch table_url(@table), params: { table: { number: @table.number, open: @table.open } }
     assert_redirected_to table_url(@table)
   end
 

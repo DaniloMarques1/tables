@@ -1,66 +1,18 @@
-<p id="notice"><%= notice %></p>
+<%= render "layouts/menu" %>
 
-<h1>Tables</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <h3 class="text-center">Mesas</h3>
+  <div>
+    <%= link_to 'Adicionar Mesa', new_table_path %>
+  </div>
+  <div class="d-flex" style="margin-top: 10px">
     <% @tables.each do |table| %>
-      <tr>
-        <td><%= link_to 'Show', table %></td>
-        <td><%= link_to 'Edit', edit_table_path(table) %></td>
-        <td><%= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="card" style="width: 18rem; margin-left: 12px;">
+        <div class="card-body">
+          <h5 class="card-title">Mesa: <%= table.number %></h5>
+          <%= link_to 'Entrar na mesa', table %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<div class="center">
-  <h2>Sample Rails Application</h2>
-  <h4>This is the home page for the Rails sample application.</h4>
+  </div>
 </div>
-<div>
-  <h2>
-    Esta é uma aplicação Rails com o Bootstrap
-  </h2>
-  <p>Teste com o uso do bootstrap</p>
-  <table class="table"> 
-    <thead> 
-      <tr> 
-        <th>#</th> 
-        <th>First Name</th> 
-        <th>Last Name</th> 
-        <th>Username</th> 
-      </tr> 
-    </thead> 
-    <tbody> 
-      <tr> 
-        <th scope="row">1</th> 
-        <td>Mark</td> 
-        <td>Otto</td> 
-        <td>@mdo</td> 
-      </tr> 
-      <tr> 
-        <th scope="row">2</th> 
-        <td>Jacob</td> 
-        <td>Thornton</td> 
-        <td>@fat</td> 
-      </tr> 
-      <tr> 
-        <th scope="row">3</th> 
-        <td>Larry</td> 
-        <td>the Bird</td> 
-        <td>@twitter</td> 
-      </tr> 
-    </tbody> 
-</table>
-</div>
-
-<%= link_to 'New Table', new_table_path %>

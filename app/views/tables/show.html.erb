@@ -1,4 +1,40 @@
-<p id="notice"><%= notice %></p>
+<%= render "layouts/menu" %>
 
-<%= link_to 'Edit', edit_table_path(@table) %> |
-<%= link_to 'Back', tables_path %>
+<div class="container">
+  <h3 class="text-center">Itens da mesa <%= @table.number %></h3>
+  <% if has_items %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Quantidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.name %></td>
+            <td>R$ <%= item.price %></td>
+            <td><%= item.quantity %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td><%= total_label %></td>
+          <td colspan="1"></td>
+          <td><%= current_total %></td>
+        </tr>
+      </tfoot>
+    </table>
+  <% else %>
+    <h3 class="text-center">Nenhum item foi adicionado a essa mesa</h3>
+  <% end %>
+</div>
+
+<br>
+
+<% if is_open %>
+  <%= link_to 'New Item', new_item_path %>
+<% end %>

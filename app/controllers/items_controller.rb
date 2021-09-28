@@ -6,6 +6,11 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+  def table
+    @table_id = params[:id]
+    puts("table id = ", @table_id)
+  end
+
   # GET /items/1 or /items/1.json
   def show
   end
@@ -13,6 +18,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @tables = Table.all
   end
 
   # GET /items/1/edit
@@ -22,10 +28,11 @@ class ItemsController < ApplicationController
   # POST /items or /items.json
   def create
     @item = Item.new(item_params)
+    table_id = @item.table_id
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: "Item was successfully created." }
+        format.html { redirect_to table_path(table_id), notice: "Item was successfully created." }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,6 +71,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.fetch(:item, {})
+      params.require(:item).permit(:name, :price, :quantity, :table_id)
     end
 end
