@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
-    table = @table
+    @tables = Table.all
   end
 
   # GET /items/1/edit

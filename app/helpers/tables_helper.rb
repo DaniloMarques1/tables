@@ -11,12 +11,9 @@ module TablesHelper
     items = @items
     total = 0
     items.each { | item |
-      puts("Item price = ", item.price)
-      puts("Item qtt = ", item.quantity)
       total += (item.price * item.quantity)
     }
 
-    puts("Total = ", total)
     return total
   end
 

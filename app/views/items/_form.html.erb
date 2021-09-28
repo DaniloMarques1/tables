@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :table_id %>
-    <%= form.text_field :table_id %>
+    <%= collection_select(:table, :table_id, @tables, :id, :number) %> 
   </div>
 
   <div class="actions">
