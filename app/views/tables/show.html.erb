@@ -30,10 +30,14 @@
   <% else %>
     <h3 class="text-center">Nenhum item foi adicionado a essa mesa</h3>
   <% end %>
+
+  <br />
+
+  <% if is_open %>
+    <%= link_to 'Adicionar Item', new_item_path, :class => "btn btn-warning", :style => "color: white" %>
+    <br />
+    <br />
+    <%= button_to 'Fechar conta', close_table_path, method: :put %>
+  <% end %>
 </div>
 
-<br>
-
-<% if is_open %>
-  <%= link_to 'Adicionar Item', new_item_path, :class => "btn btn-warning", :style => "color: white" %>
-<% end %>

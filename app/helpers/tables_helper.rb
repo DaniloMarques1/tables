@@ -24,5 +24,18 @@ module TablesHelper
   def is_open
     return @table.open
   end
+
+  def close_table_path
+    table_id = @table.id
+    return "/tables/#{table_id}"
+  end
+
+  def open_label(table)
+    if table.open
+      return "Aberta"
+    else
+      return "Fechada"
+    end
+  end
 end
 

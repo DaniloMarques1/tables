@@ -40,15 +40,28 @@ class TablesController < ApplicationController
 
   # PATCH/PUT /tables/1 or /tables/1.json
   def update
+    puts("Cheguei aqui meu bom = ", @table)
+    @table.open = false
+
     respond_to do |format|
-      if @table.update(table_params)
-        format.html { redirect_to @table, notice: "Table was successfully updated." }
+      if @table.save
+        format.html { redirect_to @table, notice: "Mesa fechada com sucesso!" }
         format.json { render :show, status: :ok, location: @table }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @table.errors, status: :unprocessable_entity }
       end
     end
+
+    #respond_to do |format|
+    #  if @table.update(table_params)
+    #    format.html { redirect_to @table, notice: "Table was successfully updated." }
+    #    format.json { render :show, status: :ok, location: @table }
+    #  else
+    #    format.html { render :edit, status: :unprocessable_entity }
+    #    format.json { render json: @table.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # DELETE /tables/1 or /tables/1.json
