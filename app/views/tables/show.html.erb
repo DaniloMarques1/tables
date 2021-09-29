@@ -23,7 +23,6 @@
       <tfoot>
         <tr>
           <td><%= total_label %></td>
-          <td colspan="1"></td>
           <td><%= current_total %></td>
         </tr>
       </tfoot>
@@ -36,5 +35,5 @@
 <br>
 
 <% if is_open %>
-  <%= link_to 'New Item', new_item_path %>
+  <%= link_to 'Adicionar Item', new_item_path, :class => "btn btn-warning", :style => "color: white" %>
 <% end %>

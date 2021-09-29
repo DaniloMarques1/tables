@@ -18,7 +18,8 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
-    @tables = Table.all
+    @tables = Table.where(open:true)
+    @item_catalogo = ItemCatalogo.all
   end
 
   # GET /items/1/edit
@@ -28,6 +29,7 @@ class ItemsController < ApplicationController
   # POST /items or /items.json
   def create
     @item = Item.new(item_params)
+    puts(item_params)
     table_id = @item.table_id
 
     respond_to do |format|

@@ -25,6 +25,7 @@ class TablesController < ApplicationController
   # POST /tables or /tables.json
   def create
     @table = Table.new(table_params)
+    @table.open = true
 
     respond_to do |format|
       if @table.save
@@ -69,4 +70,8 @@ class TablesController < ApplicationController
     def table_params
       params.require(:table).permit(:number, :open)
     end
+    def close_table
+      @table.open = false
+      @table.save
+  end
 end

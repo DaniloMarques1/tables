@@ -1,0 +1,2 @@
+class ItemCatalogo < ApplicationRecord
+end
