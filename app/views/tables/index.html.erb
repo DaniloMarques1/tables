@@ -5,12 +5,12 @@
   <div>
     <%= link_to 'Adicionar Mesa', new_table_path, :class => "btn btn-primary", :style => "color: white" %>
   </div>
-  <div class="d-flex" style="margin-top: 10px">
+  <div class="row justify-content-md-center" style="margin-top: 10px">
     <% @tables.each do |table| %>
-      <div class="card" style="width: 18rem; margin-left: 12px;">
+      <div class="card col-md-auto" style="width: 18rem; margin: 12px; min-height:110px;">
         <div class="card-body">
-          <h5 class="card-title">Mesa: <%= table.number %></h5>
-          <p style="font-size: 14px;">A mesa está: <%= open_label(table) %></p>
+          <h6>Mesa: <%= table.number %></h6>
+          <p style="font-size: 14px;"><%= open_label(table) %></p>
           <%= link_to 'Entrar na mesa', table, :class => "btn btn-primary", :style => "color: white" %>
         </div>
       </div>

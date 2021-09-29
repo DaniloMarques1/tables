@@ -37,5 +37,14 @@ module TablesHelper
       return "Fechada"
     end
   end
+
+  def quantity_total
+    tot = 0
+    @items.each { |item|
+      tot += item.quantity
+    }
+
+    return tot
+  end
 end
 
