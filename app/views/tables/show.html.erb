@@ -35,10 +35,18 @@
   <br />
 
   <% if is_open %>
-    <%= link_to 'Adicionar Item', new_item_path, :class => "btn btn-warning", :style => "color: white" %>
-    <br />
-    <br />
-    <%= button_to 'Fechar conta', close_table_path, method: :put %>
+  <div class="d-flex flex-row justify-content-between">
+    <div class="p-2">
+    <%= link_to 'Adicionar Item', new_item_path, :class => "btn btn-primary", :style => "color: white" %>
+    </div>
+    <div class="p-2">
+    <%= button_to 'Fechar conta', close_table_path, method: :put, :class => "btn btn-danger", :style => "color: white"  %>
+    </div>
+  </div>
   <% end %>
+
+  <br />
+
+  <%= link_to 'Voltar', tables_path, :class => "btn btn-warning", :style => "color: white" %>
 </div>
 
